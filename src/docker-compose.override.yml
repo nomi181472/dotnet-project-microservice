@@ -17,7 +17,7 @@ services:
     container_name: discountdb
     environment:
       - POSTGRES_USER=Admin
-      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_PASSWORD=Admin1234
       - POSTGRES_DB=DiscountDb
     restart: always
     ports:
@@ -67,9 +67,9 @@ services:
     container_name: discount.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString:Server=localhost;Port=5432;Database=DiscountDB; User Id=Admin;Password=Admin1234;"
+      - "DatabaseSettings:ConnectionString:Server=discountdb;Port=5432;Database=DiscountDB; User Id=Admin;Password=Admin1234;"
     depends_on:
-      - DiscountDB
+      - discountdb
     ports:
       - "8002:80"
 
